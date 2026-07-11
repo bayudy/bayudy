@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" data-theme="dark" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -191,6 +191,73 @@
                 transform: translateX(-50%); /* Geser sejauh 50% (1 baris) */
             }
         }
+
+        /* ================= LIGHT MODE ================= */
+        html[data-theme="light"] body { background-color: #f7f7f8; color: #3f3f46; }
+        html[data-theme="light"] .bg-grid {
+            background-image: linear-gradient(to right, rgba(0,0,0,0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(0,0,0,0.05) 1px, transparent 1px);
+        }
+        html[data-theme="light"] #preloader { background: #f7f7f8; }
+        html[data-theme="light"] .loader-name { color: #18181b; }
+        html[data-theme="light"] .loader-bar { background: #e4e4e7; }
+        html[data-theme="light"] #cursor-glow {
+            background: radial-gradient(circle, rgba(245,197,24,0.14), transparent 60%);
+        }
+        html[data-theme="light"] .grad-text { background: linear-gradient(90deg,#b8860b,#d97706); -webkit-background-clip:text; background-clip:text; color:transparent; }
+        html[data-theme="light"] .neon-glow { box-shadow: 0 10px 40px rgba(0,0,0,.10); }
+
+        /* Teks & border generik */
+        html[data-theme="light"] .text-white { color: #18181b !important; }
+        html[data-theme="light"] .text-gray-300 { color: #3f3f46 !important; }
+        html[data-theme="light"] .text-gray-400 { color: #52525b !important; }
+        html[data-theme="light"] .text-gray-500 { color: #71717a !important; }
+        html[data-theme="light"] .text-gray-600 { color: #71717a !important; }
+        html[data-theme="light"] .text-accent { color: #b8860b !important; }
+        html[data-theme="light"] .bg-accent { background-color: #f5c518 !important; color:#18181b !important; }
+        html[data-theme="light"] .border-accent { border-color:#d4a017 !important; }
+
+        html[data-theme="light"] [class*="border-white/"] { border-color: rgba(0,0,0,0.10) !important; }
+        html[data-theme="light"] [class*="bg-white/"]     { background-color: rgba(0,0,0,0.04) !important; }
+        html[data-theme="light"] .bg-\[\#121212\] { background-color: #ffffff !important; }
+        html[data-theme="light"] .bg-\[\#0a0a0a\] { background-color: #efeff1 !important; }
+        html[data-theme="light"] header#site-header { background-color: rgba(255,255,255,.75) !important; }
+        html[data-theme="light"] #mobile-menu { background-color: rgba(255,255,255,.96) !important; }
+        html[data-theme="light"] footer { color:#71717a; }
+
+        html[data-theme="light"] .marker\:text-accent > li::marker { color:#b8860b; }
+        html[data-theme="light"] ::-webkit-scrollbar-track { background: #efeff1; }
+        html[data-theme="light"] ::-webkit-scrollbar-thumb { background: #c4c4c8; }
+        html[data-theme="light"] ::-webkit-scrollbar-thumb:hover { background: #d4a017; }
+
+        html[data-theme="light"] .filter-btn { color:#3f3f46; }
+        html[data-theme="light"] .filter-btn.active { background:#f5c518; color:#18181b; border-color:#d4a017; }
+
+        html[data-theme="light"] .card-shine {
+            background: radial-gradient(600px circle at var(--x,50%) var(--y,50%), rgba(245,197,24,0.18), transparent 40%);
+        }
+        html[data-theme="light"] #modal-panel { background:#ffffff !important; }
+        html[data-theme="light"] #modal-preview { background: linear-gradient(to bottom,#f4f4f5,#ffffff) !important; }
+        html[data-theme="light"] #modal-close { background: rgba(0,0,0,.06) !important; color:#52525b; }
+
+        /* laptop mockup tetap gelap agar screenshot kontras, cuma shadow disesuaikan */
+        html[data-theme="light"] .laptop { filter: drop-shadow(-14px 18px 24px rgba(0,0,0,.22)); }
+        html[data-theme="light"] .laptop-glow { filter: drop-shadow(-14px 18px 34px rgba(212,160,23,.28)) drop-shadow(-8px 12px 20px rgba(0,0,0,.25)); }
+
+        /* Toggle buttons */
+        .ctl-btn {
+            display:inline-flex; align-items:center; justify-content:center; gap:.4rem;
+            height:38px; min-width:38px; padding:0 .7rem;
+            border:1px solid rgba(255,255,255,.12); border-radius:.5rem;
+            background: rgba(255,255,255,.05); color:#a1a1aa;
+            font-size:.75rem; font-family:'Fira Code',monospace; font-weight:600;
+            cursor:pointer; transition: all .25s ease;
+        }
+        .ctl-btn:hover { border-color: rgba(245,197,24,.5); color:#f5c518; transform: translateY(-1px); }
+        html[data-theme="light"] .ctl-btn { border-color: rgba(0,0,0,.12); background: rgba(0,0,0,.04); color:#52525b; }
+        html[data-theme="light"] .ctl-btn:hover { border-color:#d4a017; color:#b8860b; }
+        #theme-toggle i, #theme-toggle-m i { transition: transform .4s ease; }
+        #theme-toggle:hover i, #theme-toggle-m:hover i { transform: rotate(25deg) scale(1.1); }
     </style>
 </head>
 <body class="text-gray-300 antialiased bg-grid relative selection:bg-accent selection:text-black">
@@ -199,7 +266,7 @@
     <div id="preloader">
         <div class="loader-name">&lt; Bayu<span class="text-accent">.</span> <span class="blink-c">_</span>&gt;</div>
         <div class="loader-bar"><div class="loader-fill"></div></div>
-        <p class="text-xs text-gray-600 font-mono mt-3">memuat portofolio...</p>
+        <p data-i18n="pre.loading" class="text-xs text-gray-600 font-mono mt-3">memuat portofolio...</p>
     </div>
 
     <div id="scroll-progress"></div>
@@ -215,22 +282,36 @@
             <div class="flex items-center justify-between h-20">
                 <a href="#beranda" class="text-2xl font-extrabold tracking-tighter text-white">Bayu<span class="text-accent">.</span></a>
                 <nav class="hidden md:flex items-center space-x-8">
-                    <a href="#beranda" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Beranda</a>
-                    <a href="#tentang" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Tentang</a>
-                    <a href="#proyek" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Proyek</a>
-                    <a href="#pengalaman" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Pengalaman</a>
-                    <a href="#kontak" class="bg-white/5 border border-white/10 hover:border-accent/50 hover:text-accent text-sm font-medium text-gray-300 px-4 py-2 rounded-md transition-colors">Kontak</a>
+                    <a href="#beranda" data-i18n="nav.beranda" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Beranda</a>
+                    <a href="#tentang" data-i18n="nav.tentang" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Tentang</a>
+                    <a href="#proyek" data-i18n="nav.proyek" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Proyek</a>
+                    <a href="#pengalaman" data-i18n="nav.pengalaman" class="nav-link text-sm font-medium text-gray-400 hover:text-accent transition-colors">Pengalaman</a>
+                    <a href="#kontak" data-i18n="nav.kontak" class="bg-white/5 border border-white/10 hover:border-accent/50 hover:text-accent text-sm font-medium text-gray-300 px-4 py-2 rounded-md transition-colors">Kontak</a>
+
+                    <div class="flex items-center gap-2 pl-3 ml-1 border-l border-white/10">
+                        <button id="theme-toggle" class="ctl-btn" aria-label="Ganti tema" title="Dark / Light">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                        <button id="lang-toggle" class="ctl-btn" aria-label="Ganti bahasa" title="ID / EN">
+                            <i class="fa-solid fa-language"></i><span id="lang-label">ID</span>
+                        </button>
+                    </div>
                 </nav>
-                <button id="menu-btn" class="md:hidden text-white text-xl" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+
+                <div class="flex items-center gap-2 md:hidden">
+                    <button id="theme-toggle-m" class="ctl-btn" aria-label="Ganti tema"><i class="fa-solid fa-moon"></i></button>
+                    <button id="lang-toggle-m" class="ctl-btn" aria-label="Ganti bahasa"><span id="lang-label-m">ID</span></button>
+                    <button id="menu-btn" class="ctl-btn text-xl" aria-label="Buka menu"><i class="fa-solid fa-bars"></i></button>
+                </div>
             </div>
         </div>
         <div id="mobile-menu" class="hidden md:hidden border-t border-white/10 bg-[#050505]/95 backdrop-blur-xl">
             <nav class="flex flex-col px-6 py-4 space-y-3">
-                <a href="#beranda" class="mobile-item text-sm text-gray-400 hover:text-accent">Beranda</a>
-                <a href="#tentang" class="mobile-item text-sm text-gray-400 hover:text-accent">Tentang</a>
-                <a href="#proyek" class="mobile-item text-sm text-gray-400 hover:text-accent">Proyek</a>
-                <a href="#pengalaman" class="mobile-item text-sm text-gray-400 hover:text-accent">Pengalaman</a>
-                <a href="#kontak" class="mobile-item text-sm text-gray-400 hover:text-accent">Kontak</a>
+                <a href="#beranda" data-i18n="nav.beranda" class="mobile-item text-sm text-gray-400 hover:text-accent">Beranda</a>
+                <a href="#tentang" data-i18n="nav.tentang" class="mobile-item text-sm text-gray-400 hover:text-accent">Tentang</a>
+                <a href="#proyek" data-i18n="nav.proyek" class="mobile-item text-sm text-gray-400 hover:text-accent">Proyek</a>
+                <a href="#pengalaman" data-i18n="nav.pengalaman" class="mobile-item text-sm text-gray-400 hover:text-accent">Pengalaman</a>
+                <a href="#kontak" data-i18n="nav.kontak" class="mobile-item text-sm text-gray-400 hover:text-accent">Kontak</a>
             </nav>
         </div>
     </header>
@@ -242,7 +323,7 @@
                 <div class="reveal">
                     <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-accent/30 bg-accent/10 text-accent text-xs font-mono mb-6">
                         <span class="w-2 h-2 rounded-full bg-accent animate-pulse"></span>
-                        Tersedia untuk proyek baru
+                        <span data-i18n="hero.badge">Tersedia untuk proyek baru</span>
                     </div>
                     <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 tracking-tight leading-[1.05]">
                         Bayu Dwi <br><span class="grad-text">Yulianto.</span>
@@ -251,14 +332,14 @@
                         <span id="role-typed" class="text-white font-semibold"></span>
                     </p>
                     <p class="text-base text-gray-400 mb-8 max-w-lg leading-relaxed">
-                        Lulusan S1 Teknik Informatika yang menggabungkan keterampilan teknis dan kreatif untuk membangun solusi digital yang inovatif dan menarik.
+                        <span data-i18n="hero.sub">Lulusan S1 Teknik Informatika yang menggabungkan keterampilan teknis dan kreatif untuk membangun solusi digital yang inovatif dan menarik.</span>
                     </p>
                     <div class="flex flex-wrap gap-4">
                         <a href="#proyek" class="bg-accent text-black hover:bg-amber-400 font-bold px-7 py-3.5 rounded-md transition-all hover:scale-105 flex items-center gap-2">
-                            <i class="fa-solid fa-folder-open"></i> Lihat Proyek
+                            <i class="fa-solid fa-folder-open"></i> <span data-i18n="hero.cta1">Lihat Proyek</span>
                         </a>
                         <a href="#kontak" class="border border-white/15 hover:border-accent/50 text-gray-300 hover:text-accent font-medium px-7 py-3.5 rounded-md transition-all hover:scale-105 flex items-center gap-2">
-                            Hubungi Saya <i class="fa-solid fa-arrow-right text-sm"></i>
+                            <span data-i18n="hero.cta2">Hubungi Saya</span> <i class="fa-solid fa-arrow-right text-sm"></i>
                         </a>
                     </div>
                     <div class="flex gap-5 mt-8 text-gray-500">
@@ -386,32 +467,32 @@
         <section id="tentang" class="py-24">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="mb-16 reveal">
-                    <h2 class="text-3xl font-bold text-white font-mono"><span class="text-accent">01.</span> Tentang Saya</h2>
+                    <h2 class="text-3xl font-bold text-white font-mono"><span class="text-accent">01.</span> <span data-i18n="sec.about">Tentang Saya</span></h2>
                     <div class="h-1 w-20 bg-gradient-to-r from-accent to-transparent mt-4"></div>
                 </div>
 
                 <div class="grid lg:grid-cols-3 gap-12 items-start">
                     <div class="lg:col-span-2 space-y-5 text-gray-400 leading-relaxed reveal">
-                        <p>Halo, saya <span class="text-white font-semibold">Bayu Dwi Yulianto</span> — lulusan S1 Teknik Informatika <span class="text-white">Universitas Palangka Raya</span> (GPA 3,49). Saya memiliki pengalaman dalam pengembangan perangkat lunak, desain website berbasis WordPress, dan optimisasi performa sistem IT.</p>
+                        <p data-i18n-html="about.p1">Halo, saya <span class="text-white font-semibold">Bayu Dwi Yulianto</span> — lulusan S1 Teknik Informatika <span class="text-white">Universitas Palangka Raya</span> (GPA 3,49). Saya memiliki pengalaman dalam pengembangan perangkat lunak, desain website berbasis WordPress, dan optimisasi performa sistem IT.</p>
                         <p>Saya menguasai bahasa pemrograman seperti <span class="text-accent font-mono">HTML, CSS, JavaScript, PHP,</span> dan <span class="text-accent font-mono">Python</span>, framework CSS seperti Bootstrap, serta alat desain grafis seperti <span class="text-accent font-mono">Corel Draw, Canva,</span> dan <span class="text-accent font-mono">Figma</span>. Dengan kombinasi keterampilan teknis dan kreatif, saya siap berkontribusi mengembangkan solusi teknologi yang inovatif.</p>
                     </div>
 
                     <div class="grid grid-cols-2 gap-4 reveal d1">
                         <div class="bg-[#121212] border border-white/10 rounded-xl p-5 text-center hover:border-accent/40 transition-colors">
                             <div class="text-3xl font-extrabold grad-text font-mono counter" data-target="12" data-suffix="+">0</div>
-                            <div class="text-xs text-gray-500 mt-2">Proyek</div>
+                            <div data-i18n="stat.proj" class="text-xs text-gray-500 mt-2">Proyek</div>
                         </div>
                         <div class="bg-[#121212] border border-white/10 rounded-xl p-5 text-center hover:border-accent/40 transition-colors">
                             <div class="text-3xl font-extrabold grad-text font-mono counter" data-target="349" data-decimal="true">0</div>
-                            <div class="text-xs text-gray-500 mt-2">GPA (S1)</div>
+                            <div data-i18n="stat.gpa" class="text-xs text-gray-500 mt-2">GPA (S1)</div>
                         </div>
                         <div class="bg-[#121212] border border-white/10 rounded-xl p-5 text-center hover:border-accent/40 transition-colors">
                             <div class="text-3xl font-extrabold grad-text font-mono counter" data-target="2" data-suffix="×">0</div>
-                            <div class="text-xs text-gray-500 mt-2">Beasiswa BI</div>
+                            <div data-i18n="stat.bi" class="text-xs text-gray-500 mt-2">Beasiswa BI</div>
                         </div>
                         <div class="bg-[#121212] border border-white/10 rounded-xl p-5 text-center hover:border-accent/40 transition-colors">
                             <div class="text-3xl font-extrabold grad-text font-mono counter" data-target="30" data-suffix="%">0</div>
-                            <div class="text-xs text-gray-500 mt-2">Optimasi Web</div>
+                            <div data-i18n="stat.opt" class="text-xs text-gray-500 mt-2">Optimasi Web</div>
                         </div>
                     </div>
                 </div>
@@ -419,17 +500,17 @@
                 <!-- Skill bars -->
                 <div class="mt-20 grid md:grid-cols-2 gap-12">
                     <div class="reveal">
-                        <h3 class="text-sm font-mono text-accent mb-6 uppercase tracking-widest">// Kemampuan Teknis</h3>
+                        <h3 data-i18n="skills.tech" class="text-sm font-mono text-accent mb-6 uppercase tracking-widest">// Kemampuan Teknis</h3>
                         <div class="space-y-5" id="skill-bars">
-                            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-gray-300">Web Development (HTML/CSS/JS)</span><span class="text-gray-500 font-mono">90%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="90%"></div></div></div>
-                            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-gray-300">PHP & WordPress</span><span class="text-gray-500 font-mono">85%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="85%"></div></div></div>
-                            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-gray-300">Python (Flask)</span><span class="text-gray-500 font-mono">75%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="75%"></div></div></div>
-                            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-gray-300">Desain Grafis (Corel/Figma/Canva)</span><span class="text-gray-500 font-mono">88%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="88%"></div></div></div>
-                            <div><div class="flex justify-between text-sm mb-1.5"><span class="text-gray-300">Basis Data (SQL)</span><span class="text-gray-500 font-mono">80%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="80%"></div></div></div>
+                            <div><div class="flex justify-between text-sm mb-1.5"><span data-i18n="sk.web" class="text-gray-300">Web Development (HTML/CSS/JS)</span><span class="text-gray-500 font-mono">90%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="90%"></div></div></div>
+                            <div><div class="flex justify-between text-sm mb-1.5"><span data-i18n="sk.php" class="text-gray-300">PHP & WordPress</span><span class="text-gray-500 font-mono">85%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="85%"></div></div></div>
+                            <div><div class="flex justify-between text-sm mb-1.5"><span data-i18n="sk.py" class="text-gray-300">Python (Flask)</span><span class="text-gray-500 font-mono">75%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="75%"></div></div></div>
+                            <div><div class="flex justify-between text-sm mb-1.5"><span data-i18n="sk.design" class="text-gray-300">Desain Grafis (Corel/Figma/Canva)</span><span class="text-gray-500 font-mono">88%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="88%"></div></div></div>
+                            <div><div class="flex justify-between text-sm mb-1.5"><span data-i18n="sk.sql" class="text-gray-300">Basis Data (SQL)</span><span class="text-gray-500 font-mono">80%</span></div><div class="h-2 rounded-full bg-white/5 overflow-hidden"><div class="skill-fill h-full rounded-full bg-gradient-to-r from-accent to-amber-500" data-w="80%"></div></div></div>
                         </div>
                     </div>
                     <div class="reveal d1">
-                        <h3 class="text-sm font-mono text-accent mb-6 uppercase tracking-widest">// Tools & Soft Skill</h3>
+                        <h3 data-i18n="skills.tools" class="text-sm font-mono text-accent mb-6 uppercase tracking-widest">// Tools & Soft Skill</h3>
                         <div class="flex flex-wrap gap-2">
                             <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Java</span>
                             <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">C++</span>
@@ -438,12 +519,12 @@
                             <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Adobe Premiere</span>
                             <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">CapCut</span>
                             <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">GIS / Leaflet</span>
-                            <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Kepemimpinan</span>
-                            <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Public Speaking</span>
-                            <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Kerja Tim</span>
-                            <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Manajemen Waktu</span>
-                            <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Berpikir Kritis</span>
-                            <span class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Kreatif</span>
+                            <span data-i18n="chip.lead" class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Kepemimpinan</span>
+                            <span data-i18n="chip.speak" class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Public Speaking</span>
+                            <span data-i18n="chip.team" class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Kerja Tim</span>
+                            <span data-i18n="chip.time" class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Manajemen Waktu</span>
+                            <span data-i18n="chip.crit" class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Berpikir Kritis</span>
+                            <span data-i18n="chip.creative" class="px-3 py-1.5 rounded-md bg-[#121212] border border-white/10 text-sm text-gray-300">Kreatif</span>
                         </div>
                     </div>
                 </div>
@@ -454,16 +535,16 @@
         <section id="proyek" class="py-24 bg-[#0a0a0a] border-y border-white/5">
             <div class="max-w-7xl mx-auto px-6">
                 <div class="mb-10 reveal">
-                    <h2 class="text-3xl font-bold text-white font-mono"><span class="text-accent">02.</span> Daftar Proyek</h2>
+                    <h2 class="text-3xl font-bold text-white font-mono"><span class="text-accent">02.</span> <span data-i18n="sec.projects">Daftar Proyek</span></h2>
                     <div class="h-1 w-20 bg-gradient-to-r from-accent to-transparent mt-4"></div>
-                    <p class="text-gray-500 text-sm mt-4">Klik kartu untuk melihat detail setiap proyek.</p>
+                    <p data-i18n="proj.hint" class="text-gray-500 text-sm mt-4">Klik kartu untuk melihat detail setiap proyek.</p>
                 </div>
 
                 <div class="flex flex-wrap gap-2 mb-12 reveal">
-                    <button class="filter-btn active px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="all">Semua</button>
-                    <button class="filter-btn px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="web">Web Development</button>
-                    <button class="filter-btn px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="gov">Pemerintahan</button>
-                    <button class="filter-btn px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="design">Desain & Sosmed</button>
+                    <button class="filter-btn active px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="all"><span data-i18n="filter.all">Semua</span></button>
+                    <button class="filter-btn px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="web"><span data-i18n="filter.web">Web Development</span></button>
+                    <button class="filter-btn px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="gov"><span data-i18n="filter.gov">Pemerintahan</span></button>
+                    <button class="filter-btn px-4 py-2 rounded-md border border-white/10 text-sm font-medium text-gray-300 transition-colors" data-filter="design"><span data-i18n="filter.design">Desain & Sosmed</span></button>
                 </div>
 
                 <div id="project-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6"></div>
@@ -474,17 +555,17 @@
         <section id="pengalaman" class="py-24">
             <div class="max-w-4xl mx-auto px-6">
                 <div class="mb-16 reveal">
-                    <h2 class="text-3xl font-bold text-white font-mono"><span class="text-accent">03.</span> Pengalaman</h2>
+                    <h2 class="text-3xl font-bold text-white font-mono"><span class="text-accent">03.</span> <span data-i18n="sec.exp">Pengalaman</span></h2>
                     <div class="h-1 w-20 bg-gradient-to-r from-accent to-transparent mt-4"></div>
                 </div>
 
                 <div class="relative border-l border-white/10 ml-3 space-y-12">
                     <div class="relative pl-8 reveal">
                         <span class="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-accent ring-4 ring-accent/20"></span>
-                        <div class="text-xs font-mono text-accent mb-1">Maret 2025 — Sekarang</div>
-                        <h3 class="text-xl font-bold text-white">Full Stack Developer</h3>
+                        <div data-i18n="exp.d1" class="text-xs font-mono text-accent mb-1">Maret 2025 — Sekarang</div>
+                        <h3 data-i18n="exp.t1" class="text-xl font-bold text-white">Full Stack Developer</h3>
                         <p class="text-sm text-gray-500 mb-3">Diskominfo-SP Kota Palangka Raya</p>
-                        <ul class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
+                        <ul data-i18n-list="exp.l1" class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
                             <li>Merancang, mengembangkan, dan memelihara aplikasi pelayanan publik (e-Government) dari sisi front-end maupun back-end.</li>
                             <li>Membangun dan mengelola integrasi API untuk mendukung interoperabilitas dan pertukaran data antar instansi pemerintah.</li>
                             <li>Merancang arsitektur basis data yang efisien dan aman untuk mengelola data operasional sistem informasi daerah.</li>
@@ -493,10 +574,10 @@
                     </div>
                     <div class="relative pl-8 reveal">
                         <span class="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-white/30 ring-4 ring-white/5"></span>
-                        <div class="text-xs font-mono text-gray-500 mb-1">Juni 2024 — Maret 2025</div>
-                        <h3 class="text-xl font-bold text-white">Freelance Junior Web Developer</h3>
+                        <div data-i18n="exp.d2" class="text-xs font-mono text-gray-500 mb-1">Juni 2024 — Maret 2025</div>
+                        <h3 data-i18n="exp.t2" class="text-xl font-bold text-white">Freelance Junior Web Developer</h3>
                         <p class="text-sm text-gray-500 mb-3">Tingang.id</p>
-                        <ul class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
+                        <ul data-i18n-list="exp.l2" class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
                             <li>Membuat, mengedit, dan memelihara website berbasis WordPress.</li>
                             <li>Mengoptimalkan kecepatan website hingga 30% melalui caching dan kompresi gambar.</li>
                             <li>Menyesuaikan desain tema WordPress agar responsif di berbagai perangkat.</li>
@@ -504,10 +585,10 @@
                     </div>
                     <div class="relative pl-8 reveal">
                         <span class="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-white/30 ring-4 ring-white/5"></span>
-                        <div class="text-xs font-mono text-gray-500 mb-1">6 Feb — 7 April 2023</div>
-                        <h3 class="text-xl font-bold text-white">Intern IT Support</h3>
+                        <div data-i18n="exp.d3" class="text-xs font-mono text-gray-500 mb-1">6 Feb — 7 April 2023</div>
+                        <h3 data-i18n="exp.t3" class="text-xl font-bold text-white">Intern IT Support</h3>
                         <p class="text-sm text-gray-500 mb-3">DISPORA Prov. Kalteng</p>
-                        <ul class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
+                        <ul data-i18n-list="exp.l3" class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
                             <li>Mengembangkan dan memelihara website untuk pengelolaan data pegawai.</li>
                             <li>Mengembangkan dan memelihara website untuk pengelolaan surat.</li>
                             <li>Instalasi dan pemeliharaan perangkat keras kantor (PC, printer, jaringan WiFi).</li>
@@ -516,9 +597,9 @@
                     <div class="relative pl-8 reveal">
                         <span class="absolute -left-[7px] top-1.5 w-3.5 h-3.5 rounded-full bg-white/30 ring-4 ring-white/5"></span>
                         <div class="text-xs font-mono text-gray-500 mb-1">2022 & 2023</div>
-                        <h3 class="text-xl font-bold text-white">Divisi Publikasi dan Sosialisasi</h3>
+                        <h3 data-i18n="exp.t4" class="text-xl font-bold text-white">Divisi Publikasi dan Sosialisasi</h3>
                         <p class="text-sm text-gray-500 mb-3">Generasi Baru Indonesia (GenBI) UPR</p>
-                        <ul class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
+                        <ul data-i18n-list="exp.l4" class="text-gray-400 text-sm leading-relaxed space-y-1.5 list-disc list-inside marker:text-accent">
                             <li>Merencanakan dan melaksanakan kegiatan publikasi untuk meningkatkan visibilitas organisasi.</li>
                             <li>Bertanggung jawab atas kegiatan sosialisasi program organisasi ke masyarakat.</li>
                             <li>Berkolaborasi dengan tim mengembangkan strategi komunikasi yang efektif.</li>
@@ -528,11 +609,11 @@
 
                 <div class="grid md:grid-cols-2 gap-6 mt-16">
                     <div class="bg-[#121212] border border-white/10 rounded-xl p-6 reveal hover:border-accent/40 transition-colors">
-                        <h3 class="text-sm font-mono text-accent mb-4 uppercase tracking-widest"><i class="fa-solid fa-graduation-cap mr-2"></i>Pendidikan</h3>
+                        <h3 class="text-sm font-mono text-accent mb-4 uppercase tracking-widest"><i class="fa-solid fa-graduation-cap mr-2"></i><span data-i18n="edu.title">Pendidikan</span></h3>
                         <div class="mb-4">
-                            <p class="text-white font-semibold">S1 Teknik Informatika</p>
-                            <p class="text-sm text-gray-500">Universitas Palangka Raya · GPA 3,49</p>
-                            <p class="text-xs text-gray-600 font-mono mt-1">Jul 2020 — Juni 2024</p>
+                            <p data-i18n="edu.s1" class="text-white font-semibold">S1 Teknik Informatika</p>
+                            <p data-i18n="edu.upr" class="text-sm text-gray-500">Universitas Palangka Raya · GPA 3,49</p>
+                            <p data-i18n="edu.d1" class="text-xs text-gray-600 font-mono mt-1">Jul 2020 — Juni 2024</p>
                         </div>
                         <div>
                             <p class="text-white font-semibold">SMAN 3 Palangka Raya</p>
@@ -540,11 +621,11 @@
                         </div>
                     </div>
                     <div class="bg-[#121212] border border-white/10 rounded-xl p-6 reveal d1 hover:border-accent/40 transition-colors">
-                        <h3 class="text-sm font-mono text-accent mb-4 uppercase tracking-widest"><i class="fa-solid fa-award mr-2"></i>Prestasi</h3>
+                        <h3 class="text-sm font-mono text-accent mb-4 uppercase tracking-widest"><i class="fa-solid fa-award mr-2"></i><span data-i18n="ach.title">Prestasi</span></h3>
                         <div class="flex items-start gap-3">
                             <i class="fa-solid fa-trophy text-accent mt-1"></i>
                             <div>
-                                <p class="text-white font-semibold">Penerima Beasiswa Bank Indonesia</p>
+                                <p data-i18n="ach.bi" class="text-white font-semibold">Penerima Beasiswa Bank Indonesia</p>
                                 <p class="text-xs text-gray-600 font-mono mt-1">2022 & 2023</p>
                             </div>
                         </div>
@@ -556,14 +637,14 @@
         <!-- KONTAK -->
         <section id="kontak" class="py-32">
             <div class="max-w-2xl mx-auto px-6 text-center reveal">
-                <p class="text-accent font-mono mb-4">04. Apa Selanjutnya?</p>
-                <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Mari Berkolaborasi</h2>
+                <p class="text-accent font-mono mb-4">04. <span data-i18n="sec.next">Apa Selanjutnya?</span></p>
+                <h2 data-i18n="contact.h" class="text-4xl md:text-5xl font-bold text-white mb-6">Mari Berkolaborasi</h2>
                 <p class="text-gray-400 mb-10 leading-relaxed">
-                    Butuh bantuan membangun website, mengembangkan sistem, atau desain visual yang menarik? Saya terbuka untuk proyek dan peluang baru. Mari bicara.
+                    <span data-i18n="contact.p">Butuh bantuan membangun website, mengembangkan sistem, atau desain visual yang menarik? Saya terbuka untuk proyek dan peluang baru. Mari bicara.</span>
                 </p>
                 <div class="flex flex-wrap justify-center gap-4">
                     <a href="mailto:bayu071002@gmail.com" class="inline-flex items-center gap-2 px-8 py-4 bg-accent text-black font-semibold hover:bg-amber-400 hover:scale-105 transition-all rounded">
-                        <i class="fa-solid fa-envelope"></i> Email Saya
+                        <i class="fa-solid fa-envelope"></i> <span data-i18n="contact.email">Email Saya</span>
                     </a>
                     <a href="https://wa.me/6287829466743" class="inline-flex items-center gap-2 px-8 py-4 border border-accent text-accent font-mono hover:bg-accent/10 hover:scale-105 transition-all rounded">
                         <i class="fa-brands fa-whatsapp"></i> WhatsApp
@@ -574,7 +655,7 @@
     </main>
 
     <footer class="text-center py-8 border-t border-white/10 font-mono text-xs text-gray-600">
-        <p>© 2026 Bayu Dwi Yulianto · Dibangun dengan <i class="fa-solid fa-heart text-accent"></i></p>
+        <p><span data-i18n="footer.c">© 2026 Bayu Dwi Yulianto · Dibangun dengan</span> <i class="fa-solid fa-heart text-accent"></i></p>
     </footer>
 
     <!-- MODAL -->
@@ -598,6 +679,194 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
 
     <script>
+
+        /* =====================================================================
+           ============ DARK/LIGHT MODE + BAHASA (ID / EN) =====================
+           ===================================================================== */
+        const I18N = {
+            id: {
+                'nav.beranda': 'Beranda', 'nav.tentang': 'Tentang', 'nav.proyek': 'Proyek',
+                'nav.pengalaman': 'Pengalaman', 'nav.kontak': 'Kontak',
+                'pre.loading': 'memuat portofolio...',
+                'hero.badge': 'Tersedia untuk proyek baru',
+                'hero.roles': ['Full Stack Developer.', 'Web Developer.', 'Problem Solver.'],
+                'hero.sub': 'Lulusan S1 Teknik Informatika yang menggabungkan keterampilan teknis dan kreatif untuk membangun solusi digital yang inovatif dan menarik.',
+                'hero.cta1': 'Lihat Proyek', 'hero.cta2': 'Hubungi Saya',
+                'code.snippet': 'const bayu = {\n  peran: "Full Stack Developer",\n  pendidikan: "S1 Teknik Informatika",\n  fokus: ["Web Development", "Desain Grafis"],\n  stack: ["HTML", "CSS", "JS", "PHP", "Python"],\n};',
+                'sec.about': 'Tentang Saya', 'sec.projects': 'Daftar Proyek', 'sec.exp': 'Pengalaman', 'sec.next': 'Apa Selanjutnya?',
+                'about.p1': 'Halo, saya <span class="text-white font-semibold">Bayu Dwi Yulianto</span> — lulusan S1 Teknik Informatika <span class="text-white">Universitas Palangka Raya</span> (GPA 3,49). Saya memiliki pengalaman dalam pengembangan perangkat lunak, desain website berbasis WordPress, dan optimisasi performa sistem IT.',
+                'stat.proj': 'Proyek', 'stat.gpa': 'GPA (S1)', 'stat.bi': 'Beasiswa BI', 'stat.opt': 'Optimasi Web',
+                'skills.tech': '// Kemampuan Teknis', 'skills.tools': '// Tools & Soft Skill',
+                'sk.web': 'Web Development (HTML/CSS/JS)', 'sk.php': 'PHP & WordPress', 'sk.py': 'Python (Flask)',
+                'sk.design': 'Desain Grafis (Corel/Figma/Canva)', 'sk.sql': 'Basis Data (SQL)',
+                'chip.lead': 'Kepemimpinan', 'chip.speak': 'Public Speaking', 'chip.team': 'Kerja Tim',
+                'chip.time': 'Manajemen Waktu', 'chip.crit': 'Berpikir Kritis', 'chip.creative': 'Kreatif',
+                'proj.hint': 'Klik kartu untuk melihat detail setiap proyek.',
+                'filter.all': 'Semua', 'filter.web': 'Web Development', 'filter.gov': 'Pemerintahan', 'filter.design': 'Desain & Sosmed',
+                'modal.features': '// Fitur Utama',
+                'exp.d1': 'Maret 2025 — Sekarang', 'exp.t1': 'Full Stack Developer',
+                'exp.l1': ['Merancang, mengembangkan, dan memelihara aplikasi pelayanan publik (e-Government) dari sisi front-end maupun back-end.','Membangun dan mengelola integrasi API untuk mendukung interoperabilitas dan pertukaran data antar instansi pemerintah.','Merancang arsitektur basis data yang efisien dan aman untuk mengelola data operasional sistem informasi daerah.','Mengoptimalkan keamanan, kinerja, dan skalabilitas aplikasi sesuai dengan standar Sistem Pemerintahan Berbasis Elektronik (SPBE).'],
+                'exp.d2': 'Juni 2024 — Maret 2025', 'exp.t2': 'Freelance Junior Web Developer',
+                'exp.l2': ['Membuat, mengedit, dan memelihara website berbasis WordPress.','Mengoptimalkan kecepatan website hingga 30% melalui caching dan kompresi gambar.','Menyesuaikan desain tema WordPress agar responsif di berbagai perangkat.'],
+                'exp.d3': '6 Feb — 7 April 2023', 'exp.t3': 'Intern IT Support',
+                'exp.l3': ['Mengembangkan dan memelihara website untuk pengelolaan data pegawai.','Mengembangkan dan memelihara website untuk pengelolaan surat.','Instalasi dan pemeliharaan perangkat keras kantor (PC, printer, jaringan WiFi).'],
+                'exp.t4': 'Divisi Publikasi dan Sosialisasi',
+                'exp.l4': ['Merencanakan dan melaksanakan kegiatan publikasi untuk meningkatkan visibilitas organisasi.','Bertanggung jawab atas kegiatan sosialisasi program organisasi ke masyarakat.','Berkolaborasi dengan tim mengembangkan strategi komunikasi yang efektif.'],
+                'edu.title': 'Pendidikan', 'edu.s1': 'S1 Teknik Informatika',
+                'edu.upr': 'Universitas Palangka Raya · GPA 3,49', 'edu.d1': 'Jul 2020 — Juni 2024',
+                'ach.title': 'Prestasi', 'ach.bi': 'Penerima Beasiswa Bank Indonesia',
+                'contact.h': 'Mari Berkolaborasi',
+                'contact.p': 'Butuh bantuan membangun website, mengembangkan sistem, atau desain visual yang menarik? Saya terbuka untuk proyek dan peluang baru. Mari bicara.',
+                'contact.email': 'Email Saya',
+                'footer.c': '© 2026 Bayu Dwi Yulianto · Dibangun dengan'
+            },
+            en: {
+                'nav.beranda': 'Home', 'nav.tentang': 'About', 'nav.proyek': 'Projects',
+                'nav.pengalaman': 'Experience', 'nav.kontak': 'Contact',
+                'pre.loading': 'loading portfolio...',
+                'hero.badge': 'Available for new projects',
+                'hero.roles': ['Full Stack Developer.', 'Web Developer.', 'Problem Solver.'],
+                'hero.sub': 'A Computer Science graduate combining technical and creative skills to build innovative, engaging digital solutions.',
+                'hero.cta1': 'View Projects', 'hero.cta2': 'Contact Me',
+                'code.snippet': 'const bayu = {\n  role: "Full Stack Developer",\n  education: "BSc Informatics Engineering",\n  focus: ["Web Development", "Graphic Design"],\n  stack: ["HTML", "CSS", "JS", "PHP", "Python"],\n};',
+                'sec.about': 'About Me', 'sec.projects': 'Projects', 'sec.exp': 'Experience', 'sec.next': "What's Next?",
+                'about.p1': 'Hi, I am <span class="text-white font-semibold">Bayu Dwi Yulianto</span> — a Bachelor of Informatics Engineering graduate from <span class="text-white">Universitas Palangka Raya</span> (GPA 3.49). I have experience in software development, WordPress-based website design, and IT system performance optimization.',
+                'stat.proj': 'Projects', 'stat.gpa': 'GPA (BSc)', 'stat.bi': 'BI Scholarship', 'stat.opt': 'Web Optimization',
+                'skills.tech': '// Technical Skills', 'skills.tools': '// Tools & Soft Skills',
+                'sk.web': 'Web Development (HTML/CSS/JS)', 'sk.php': 'PHP & WordPress', 'sk.py': 'Python (Flask)',
+                'sk.design': 'Graphic Design (Corel/Figma/Canva)', 'sk.sql': 'Databases (SQL)',
+                'chip.lead': 'Leadership', 'chip.speak': 'Public Speaking', 'chip.team': 'Teamwork',
+                'chip.time': 'Time Management', 'chip.crit': 'Critical Thinking', 'chip.creative': 'Creativity',
+                'proj.hint': 'Click a card to see the details of each project.',
+                'filter.all': 'All', 'filter.web': 'Web Development', 'filter.gov': 'Government', 'filter.design': 'Design & Social Media',
+                'modal.features': '// Key Features',
+                'exp.d1': 'March 2025 — Present', 'exp.t1': 'Full Stack Developer',
+                'exp.l1': ['Design, develop, and maintain public service (e-Government) applications on both front-end and back-end.','Build and manage API integrations to support interoperability and data exchange between government agencies.','Design efficient and secure database architectures for regional information system data.','Optimize application security, performance, and scalability in line with Indonesia\'s SPBE e-government standards.'],
+                'exp.d2': 'June 2024 — March 2025', 'exp.t2': 'Freelance Junior Web Developer',
+                'exp.l2': ['Built, edited, and maintained WordPress-based websites.','Improved website speed by up to 30% through caching and image compression.','Customized WordPress themes to be responsive across devices.'],
+                'exp.d3': '6 Feb — 7 April 2023', 'exp.t3': 'IT Support Intern',
+                'exp.l3': ['Developed and maintained a website for employee data management.','Developed and maintained a website for correspondence management.','Installed and maintained office hardware (PCs, printers, WiFi networks).'],
+                'exp.t4': 'Publication & Outreach Division',
+                'exp.l4': ['Planned and executed publication activities to raise organizational visibility.','Responsible for socializing organizational programs to the community.','Collaborated with the team to develop effective communication strategies.'],
+                'edu.title': 'Education', 'edu.s1': 'BSc in Informatics Engineering',
+                'edu.upr': 'Universitas Palangka Raya · GPA 3.49', 'edu.d1': 'Jul 2020 — June 2024',
+                'ach.title': 'Achievements', 'ach.bi': 'Bank Indonesia Scholarship Recipient',
+                'contact.h': "Let's Collaborate",
+                'contact.p': 'Need help building a website, developing a system, or creating compelling visual design? I am open to new projects and opportunities. Let\'s talk.',
+                'contact.email': 'Email Me',
+                'footer.c': '© 2026 Bayu Dwi Yulianto · Built with'
+            }
+        };
+
+        // Terjemahan konten proyek (index sesuai array `projects`)
+        const PROJECTS_EN = [
+            { catLabel:'Government', title:'Palangka Raya in One Grasp',
+              desc:'A command-center dashboard presenting strategic data from various regional agencies in an integrated, real-time, and interactive single view.',
+              features:['Lapor.go.id & Emergency Call 112 data integration','Social media sentiment & inflation indicators','Real-time budget and financial realization','Cross-agency data visualization'] },
+            { catLabel:'Government', title:'TAMPUNG — GIS-Based Tax Data',
+              desc:'Technology for Tax Data Analysis, Monitoring & Updating based on GIS to support the optimization of Regional Original Revenue (PAD) through a spatial approach.',
+              features:['91,930 land parcels & 27,469 tax objects mapped','Interactive Leaflet map with layers & clustering','Property tax compliance analysis per subdistrict (heatmap)','SimBG data integration & automatic PBB sync (cron)','Flask/Python backend + SQLite'] },
+            { catLabel:'Government', title:'ASN CERDAS — E-Certificates & Digital Signature',
+              desc:'ASN Certificate & Development Application System for automated, paperless, and verifiable issuance of civil-servant training certificates, integrated with the BSrE digital signature.',
+              features:['Bulk electronic signing via BSrE','Self-service QR attendance & real-time attendance statistics','Bulk certificate generation from Excel/CSV data','Certificate layout coordinate editor (name, number, QR)','Event, user & ASN information center management'] },
+            { catLabel:'Web Development', title:'SAMSAT Seruyan Electronic Queue System',
+              desc:'An electronic queue system to streamline service queues and help the agency collect taxpayer data more easily.',
+              features:['Real-time per-counter queue monitor','Online service registration form','Taxpayer data recap'] },
+            { catLabel:'Government', title:'SPKT Service Website — Palangka Raya Police',
+              desc:'A police report service system (SPKT) to speed up document verification, printing of Police Report Receipts (STPL), and monitoring of reporter queues.',
+              features:['Real-time daily service status dashboard','Verification of reporter documents & report data','Print Police Report Receipt (STPL)','Queue monitoring & overall report recap'] },
+            { catLabel:'Government', title:'DISPORA Central Kalimantan Employee Data Management',
+              desc:'A personnel information system (SIMPEG) for registering daily contract staff, with applicant recommendations to support decision-making.',
+              features:['Employee biodata & employment history','Centralized employee data management','System-generated applicant recommendations'] },
+            { catLabel:'Government', title:'BPSILHK Banjar Baru Contract Staff Application',
+              desc:'A decision support system for daily contract staff recruitment using the VIKOR ranking method — integrated and efficient.',
+              features:['Online applicant data verification','VIKOR method calculation & ranking','Upload selection result announcements'] },
+            { catLabel:'Government', title:'Incoming & Outgoing Mail — DISPORA Central Kalimantan',
+              desc:'A mail management system digitizing the receipt, recording, distribution, and archiving of incoming and outgoing correspondence.',
+              features:['Incoming & outgoing mail agenda','Digital agenda book','Structured mail archive'] },
+            { catLabel:'Web Development', title:'Griya Berkat Indah Batik Online Store',
+              desc:'A modern, user-friendly e-commerce platform with a full catalog of batik products including details and high-quality images.',
+              features:['Product catalog (Written Batik, Stamped, Shirts, Dresses)','Product details & high-quality images','Customer login & registration'] },
+            { catLabel:'Web Development', title:'Patung Village Profile Website',
+              desc:'An informative digital platform for Patung Village: full village profile, history, vision & mission, and government structure.',
+              features:['Village profile, history, vision & mission','Latest news & announcements','Activity gallery & interactive map'] },
+            { catLabel:'Design & Social Media', title:'GenBI UPR Instagram Manager',
+              desc:'Managed and optimized social media content for GenBI UPR (2022 & 2023): visual design for event information, campaigns, and announcements.',
+              features:['438+ posts & 1,662 followers','Event & campaign visual design','Routine content management'] }
+        ];
+
+        let LANG  = localStorage.getItem('lang')  || 'en';
+        let THEME = localStorage.getItem('theme') || 'dark';
+
+        function t(key) {
+            const d = I18N[LANG] || I18N.id;
+            return (key in d) ? d[key] : (I18N.id[key] !== undefined ? I18N.id[key] : key);
+        }
+        // Project Translate: ambil field proyek sesuai bahasa aktif
+        function PT(idx, field) {
+            if (LANG === 'en' && PROJECTS_EN[idx] && PROJECTS_EN[idx][field] !== undefined) {
+                return PROJECTS_EN[idx][field];
+            }
+            return projects[idx][field];
+        }
+
+        function applyLang() {
+            document.documentElement.lang = LANG;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                el.textContent = t(el.dataset.i18n);
+            });
+            document.querySelectorAll('[data-i18n-html]').forEach(el => {
+                el.innerHTML = t(el.dataset.i18nHtml);
+            });
+            document.querySelectorAll('[data-i18n-list]').forEach(el => {
+                const arr = t(el.dataset.i18nList);
+                if (Array.isArray(arr)) {
+                    el.innerHTML = arr.map(x => `<li>${x}</li>`).join('');
+                }
+            });
+            const lbl = LANG.toUpperCase();
+            const l1 = document.getElementById('lang-label');
+            const l2 = document.getElementById('lang-label-m');
+            if (l1) l1.textContent = lbl;
+            if (l2) l2.textContent = lbl;
+
+            if (typeof renderProjects === 'function') renderProjects(currentFilter);
+            if (typeof initRoleTyped === 'function') initRoleTyped();
+            if (typeof initCodeTyped === 'function') initCodeTyped();
+        }
+
+        function applyTheme() {
+            document.documentElement.setAttribute('data-theme', THEME);
+            const icon = THEME === 'light' ? 'fa-sun' : 'fa-moon';
+            ['theme-toggle', 'theme-toggle-m'].forEach(id => {
+                const b = document.getElementById(id);
+                if (b) b.innerHTML = `<i class="fa-solid ${icon}"></i>`;
+            });
+        }
+
+        function toggleTheme() {
+            THEME = (THEME === 'dark') ? 'light' : 'dark';
+            localStorage.setItem('theme', THEME);
+            applyTheme();
+        }
+        function toggleLang() {
+            LANG = (LANG === 'id') ? 'en' : 'id';
+            localStorage.setItem('lang', LANG);
+            applyLang();
+        }
+
+        ['theme-toggle', 'theme-toggle-m'].forEach(id => {
+            const b = document.getElementById(id);
+            if (b) b.addEventListener('click', toggleTheme);
+        });
+        ['lang-toggle', 'lang-toggle-m'].forEach(id => {
+            const b = document.getElementById(id);
+            if (b) b.addEventListener('click', toggleLang);
+        });
+
+        applyTheme();   // tema langsung dipasang
+        // applyLang() dipanggil di akhir script (setelah `projects` & renderProjects terdefinisi)
+
         // ===== PRELOADER =====
         window.addEventListener('load', () => {
             setTimeout(() => document.getElementById('preloader').classList.add('done'), 1400);
@@ -752,7 +1021,9 @@
                 </div>`;
         }
 
+        let currentFilter = 'all';
         function renderProjects(filter) {
+            currentFilter = filter;
             grid.innerHTML = '';
             projects.forEach((p, idx) => {
                 if (filter !== 'all' && p.cat !== filter) return;
@@ -764,11 +1035,11 @@
                     <div class="p-5 pb-0">${laptopHTML(p, false)}</div>
                     <div class="p-6 relative">
                         <div class="flex justify-between items-start mb-3">
-                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/30">${p.catLabel}</span>
+                            <span class="text-[11px] font-mono px-2.5 py-1 rounded-full bg-accent/10 text-accent border border-accent/30">${PT(idx,'catLabel')}</span>
                             <span class="text-gray-600 group-hover:text-accent transition-colors text-sm"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
                         </div>
-                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors leading-snug">${p.title}</h3>
-                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">${p.desc}</p>
+                        <h3 class="text-lg font-bold text-white mb-2 group-hover:text-accent transition-colors leading-snug">${PT(idx,'title')}</h3>
+                        <p class="text-gray-400 text-sm mb-4 leading-relaxed line-clamp-2">${PT(idx,'desc')}</p>
                         <div class="flex flex-wrap gap-2 font-mono text-xs">
                             ${p.tags.slice(0,3).map(t => `<span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400">${t}</span>`).join('')}
                         </div>
@@ -815,12 +1086,12 @@
             const p = projects[i];
             document.getElementById('modal-preview').innerHTML = laptopHTML(p, true);
             document.getElementById('modal-icon').innerHTML = `<i class="${p.icon}"></i>`;
-            document.getElementById('modal-cat').textContent = p.catLabel;
-            document.getElementById('modal-title').textContent = p.title;
-            document.getElementById('modal-desc').textContent = p.desc;
+            document.getElementById('modal-cat').textContent = PT(i,'catLabel');
+            document.getElementById('modal-title').textContent = PT(i,'title');
+            document.getElementById('modal-desc').textContent = PT(i,'desc');
             document.getElementById('modal-features').innerHTML =
-                '<h4 class="text-xs font-mono text-accent uppercase tracking-widest mb-3">// Fitur Utama</h4><ul class="space-y-2">' +
-                p.features.map(f => `<li class="flex items-start gap-2 text-sm text-gray-300"><i class="fa-solid fa-circle-check text-accent mt-0.5"></i><span>${f}</span></li>`).join('') +
+                '<h4 class="text-xs font-mono text-accent uppercase tracking-widest mb-3">' + t('modal.features') + '</h4><ul class="space-y-2">' +
+                PT(i,'features').map(f => `<li class="flex items-start gap-2 text-sm text-gray-300"><i class="fa-solid fa-circle-check text-accent mt-0.5"></i><span>${f}</span></li>`).join('') +
                 '</ul>';
             document.getElementById('modal-tags').innerHTML =
                 p.tags.map(t => `<span class="px-2.5 py-1 rounded-full bg-white/5 border border-white/10 text-gray-400">${t}</span>`).join('');
@@ -865,23 +1136,35 @@
         }
 
         // ===== ROLE TYPED =====
-        new Typed('#role-typed', {
-            strings: ['Full Stack Developer.','Web Developer.', 'Problem Solver.'],
-            typeSpeed: 60, backSpeed: 35, backDelay: 1500, loop: true
-        });
+        let typedRole = null;
+        function initRoleTyped() {
+            if (typedRole) typedRole.destroy();
+            document.getElementById('role-typed').textContent = '';
+            typedRole = new Typed('#role-typed', {
+                strings: t('hero.roles'),
+                typeSpeed: 60, backSpeed: 35, backDelay: 1500, loop: true
+            });
+        }
+        initRoleTyped();
 
         // ===== CODE ANIMATION =====
-        const codeSnippet = `const bayu = {
-        peran: "Full Stack Developer",
-        pendidikan: "S1 Teknik Informatika",
-        fokus: ["Web Development", "Desain Grafis"],
-        stack: ["HTML", "CSS", "JS", "PHP", "Python"],
-        };`;
-        new Typed('#code-animation', {
-            strings: [codeSnippet],
-            typeSpeed: 22, showCursor: true, cursorChar: '█',
-            onComplete: function() { hljs.highlightElement(document.getElementById('code-animation')); }
-        });
+        let typedCode = null;
+        function initCodeTyped() {
+            const el = document.getElementById('code-animation');
+            if (!el) return;
+            if (typedCode) typedCode.destroy();
+            el.textContent = '';
+            el.className = 'language-javascript';
+            typedCode = new Typed('#code-animation', {
+                strings: [t('code.snippet')],
+                typeSpeed: 22, showCursor: true, cursorChar: '\u2588',
+                onComplete: function() { hljs.highlightElement(el); }
+            });
+        }
+        initCodeTyped();
+
+        // ===== TERAPKAN BAHASA TERSIMPAN (setelah semua fungsi siap) =====
+        applyLang();
     </script>
 </body>
 </html>
